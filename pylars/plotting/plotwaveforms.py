@@ -75,8 +75,8 @@ def plot_pulses(waveform: np.ndarray, pulse_list: list,
 
     ax = plot_waveform(waveform, ax=ax)
     for pulse in pulse_list:
-        if len(pulse) > 1:
+        if len(pulse) > 0:
             ax.fill_betweenx(y=np.linspace(0, 16000, 100),
-                             x1=pulse[0], x2=pulse[-1],
+                             x1=pulse[0], x2=pulse[-1]+1,
                              alpha=0.2, color='cyan')
     return ax

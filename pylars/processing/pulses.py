@@ -209,7 +209,7 @@ def _get_area(waveform: np.ndarray, baseline_value: float,
     else:
         polarity = 1
 
-    pulse_wf = waveform[pulse_start:pulse_end]
+    pulse_wf = waveform[pulse_start:pulse_end+1]
     area_under = polarity * dt * np.sum(pulse_wf - baseline_value)
     return area_under
 
@@ -238,7 +238,7 @@ def _get_amplitude(waveform: np.ndarray, baseline_value: float,
         float: return amplitude of pulse in ADC counts (minimum value of
             ADC counts registered in pulse)
     """
-    peak_wf = waveform[peak_start:peak_end]
+    peak_wf = waveform[peak_start:peak_end+1]
 
     if baseline_subtracted:
         baseline_value = 0
